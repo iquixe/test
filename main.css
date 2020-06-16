@@ -1,0 +1,336 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400&family=Julius+Sans+One&family=Jura:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700&family=Changa:wght@200;300;400;500;600;700;800&family=Markazi+Text:wght@400;500;600;700&family=Tajawal:wght@200;300;400;500;700;800&display=swap");
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari + Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+:root {
+  color: black;
+  font-size: 1em;
+  font-family: "Cairo", "Changa", "xMarkazi Text", "Tajawal";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+.head,
+.body {
+  width: 100%;
+  margin: 0em;
+  padding: 2em;
+  background-color: whitesmoke;
+}
+
+.head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #e0bf93;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 599px) {
+  .head {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (min-width: 900px) {
+  .head {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.head .img {
+  background-image: url("pic.jpg");
+  background-repeat: no-repeat;
+  background-position: 55% 12%;
+  background-color: darkgreen;
+  border: 5px solid white;
+  margin: auto 0;
+  border-radius: 15em;
+  width: 15em;
+  height: 15em;
+}
+
+@media (max-width: 599px) {
+  .head .img {
+    margin: 2em auto 0 auto;
+  }
+}
+
+.head .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 4em;
+  text-align: center;
+}
+
+@media (max-width: 599px) {
+  .head .text {
+    margin: 0;
+  }
+}
+
+.head .text p {
+  font-size: 2em;
+  margin: 0;
+  color: white;
+}
+
+@media (max-width: 599px) {
+  .head .text p {
+    font-size: 1.5em;
+  }
+}
+
+.head .text p:first-of-type {
+  border-bottom: 1px solid grey;
+  font-size: 5em;
+}
+
+@media (max-width: 599px) {
+  .head .text p:first-of-type {
+    font-size: 4em;
+  }
+}
+
+.head p:last-of-type {
+  font-family: "Jura", "Comic Neue", "Montserrat";
+  margin: 0.5em 0 0 0;
+}
+
+.body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .body {
+    display: block;
+  }
+}
+
+@media (min-width: 900px) {
+  .body {
+    width: 90%;
+  }
+}
+
+.body .right {
+  margin: 0;
+  padding: 0;
+  min-width: 4em;
+  margin-left: 3em;
+  padding-left: 1em;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33%;
+          flex: 1 1 33%;
+}
+
+.body .right section ~ section {
+  border-left: 1px grey solid;
+  padding-left: 1em;
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .body .right section ~ section {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
+
+.body .right section ~ section:not(:last-child) {
+  padding-bottom: 3em;
+}
+
+@media (max-width: 600px) {
+  .body .right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+.body .left {
+  -webkit-box-flex: 2;
+      -ms-flex: 2 1 66%;
+          flex: 2 1 66%;
+  margin: 0;
+  padding: 0;
+}
+
+.body section {
+  color: #505050;
+  margin-bottom: 2em;
+  font-size: 1em;
+}
+
+.body section span {
+  text-decoration: underline;
+  color: #252525;
+}
+
+.body section .title {
+  font-weight: 400;
+  font-size: 2em;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0 1rem;
+  background-color: #e9e5e5;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .body section .title {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+}
+
+.body section .bold {
+  margin-top: 1em;
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: #313131;
+}
+
+@media (max-width: 599px) {
+  .body section .bold {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 3.5em;
+    background-color: white;
+    min-height: 3.5em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+.body section .info {
+  text-transform: uppercase;
+  color: #5c5c5c;
+}
+
+.body section p {
+  font-size: 1em;
+  margin: 0;
+  text-justify: inter-word;
+  text-align: justify;
+}
+
+.body section .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.body section .icon i {
+  margin-right: 0.5em;
+}
+
+.body section ul {
+  padding: 0;
+}
+
+ul.quote {
+  padding: auto;
+  list-style: none;
+  text-justify: inter-word;
+  text-align: justify;
+}
+
+ul.quote li {
+  quotes: "«" "»" "‹" "›";
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+ul.quote li:hover {
+  background-color: cornsilk;
+}
+
+ul.quote li:not(:last-child) {
+  -webkit-box-shadow: 0px 4px 9px -9px #b3b2b2;
+          box-shadow: 0px 4px 9px -9px #b3b2b2;
+}
+
+.sub-bold {
+  font-weight: bold;
+  padding-top: 1em;
+  -webkit-text-decoration: wavy;
+          text-decoration: wavy;
+  width: auto;
+}
+
+.lm {
+  margin: 0;
+  margin-left: 1em;
+}
+
+.reason {
+  font-weight: bold;
+  text-align: right !important;
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700&family=Changa:wght@200;300;400;500;600;700;800&family=Markazi+Text:wght@400;500;600;700&family=Tajawal:wght@200;300;400;500;700;800&display=swap");
+//'Cairo', 'Changa', 'Markazi Text', 'Tajawal'
+@mixin backimage($image, $height: 100vh, $bgPos: center center) {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url($image);
+    background-repeat: no-repeat;
+    background-position: $bgPos;
+    background-size: cover;
+    height: $height;
+}
+
+@mixin circulate($height) {
+    min-width: $height;
+    min-height: $height;
+    border-radius: $height / 2;
+    // border: 1px blue solid;
+}
+@mixin clearfix {
+    &::before,
+    &::after {
+        content: " ";
+        display: table;
+    }
+    &::after {
+        clear: both;
+    }
+}
+
+@mixin selective-cursor {
+    cursor: pointer;
+    @include for-size(phone-only) {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    }
+    @include for-size(tablet-p-up) {
+        &:hover {
+            background-color: tomato;
+        }
+    }
+}
+@mixin break($args...) {
+    @if length($args) == 1 {
+        @media (min-width: nth($args, 1)) {
+            @content;
+        }
+    } @else {
+        @media (min-width: nth($args, 1)) and (max-width: nth($args, 2)) {
+            @content;
+        }
+    }
+}
+
+@mixin for-size($range) {
+    $phone-upper-boundary: 600px;
+    $tablet-p-upper-boundary: 900px;
+    $tablet-landscape-upper-boundary: 1200px;
+    $desktop-upper-boundary: 1800px;
+
+    @if $range == phone-only {
+        @media (max-width: #{$phone-upper-boundary - 1}) {
+            @content;
+        }
+    } @else if $range == to-tablet-p {
+        @media (max-width: $phone-upper-boundary) {
+            @content;
+        }
+    } @else if $range == tablet-p-up {
+        @media (min-width: $phone-upper-boundary) {
+            @content;
+        }
+    } @else if $range == tablet-landscape-up {
+        @media (min-width: $tablet-p-upper-boundary) {
+            @content;
+        }
+    } @else if $range == desktop-up {
+        @media (min-width: $tablet-landscape-upper-boundary) {
+            @content;
+        }
+    } @else if $range == big-desktop-up {
+        @media (min-width: $desktop-upper-boundary) {
+            @content;
+        }
+    }
+}
